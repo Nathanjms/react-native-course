@@ -1,5 +1,4 @@
 import React from "react";
-// import { ProgressView } from "@react-native-community/progress-view";
 import { 
   Text,
   View, 
