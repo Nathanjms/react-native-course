@@ -5,6 +5,7 @@ export default function App() {
   return (
     <View style={{ padding:50 }}>
       <Text>Hello World</Text>
+      <Text>Test</Text>
 
     </View>
   )
