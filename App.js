@@ -1,4 +1,5 @@
 import React from "react";
+import * as Progress from "expo-progress";
 import { 
   Text,
   View, 
@@ -6,7 +7,7 @@ import {
   Button,
   Alert,
   Dimensions,
-  Platform
+  Platform,
 } from "react-native";
 
 const { height, width } = Dimensions.get("window");
@@ -17,12 +18,11 @@ export default function App() {
   }
   return (
     <View style={{ padding:50 }}>
-      {/* <ProgressView
-        progressTintColor="orange"
-        trackTintColor="blue"
-        progress={0.7}
-      /> */}
       <ActivityIndicator size="large" color="#61DBFB" />
+      <Progress.Bar 
+        color="blue"
+        progress={0.8}
+      />
       <Button title="click me" onPress={onButtonPress}/>
       <Text>OS: {Platform.OS}</Text>
       <Text>Height: {height}</Text>
