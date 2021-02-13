@@ -1,14 +1,16 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Image, View, Dimensions } from "react-native";
+
+import imgRicko from "./assets/ricko.jpg"
+import imgRickoTwo from "./assets/ricko2.jpg"
 
 
 export default function App() {
   
   return (
     <View style={styles.page}>
-      <Text style={styles.text}>red</Text>
-      <Text style={[styles.text, styles.selectedText]}>green</Text>
-      <Text style={styles.text}>blue</Text>
+      <Image style={styles.image} source={imgRicko}/>
+      <Image style={styles.image} source={imgRickoTwo}/>
     </View>
   )
 }
@@ -16,24 +18,13 @@ export default function App() {
 const styles = StyleSheet.create({
   page: {
     flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "flex-start",
-    marginTop: 40,
-    backgroundColor: "#DDD"
+    justifyContent: "center",
+    alignItems: "center"
   },
-  text: {
+  image: {
     flex: 1,
-    textAlign: "center",
-    fontSize: 22,
-    color: "red",
-    backgroundColor: "yellow",
-    margin: 10,
-    padding: 5
-  },
-  selectedText: {
-    alignSelf: "flex-end",
-    backgroundColor: "red",
-    color: "yellow"
+    borderRadius: 50,
+    margin:10,
+    width: Dimensions.get("window").width-10
   }
 })
