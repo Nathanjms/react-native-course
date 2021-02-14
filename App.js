@@ -1,18 +1,19 @@
 import React, {useState} from "react";
-import { StyleSheet, View } from "react-native";
-import ColorButton from "./components/ColorButton"
+import { StyleSheet, FlatList } from "react-native";
+import ColorButton from "./components/ColorButton";
+import defaultColors from "./data/defaultColors.json";
 
 export default function App() {
   const [backgroundColor, setbackgroundColor] = useState("blue");
   return (
-    <View style={[styles.container, { backgroundColor }]}>
-        <ColorButton backgroundColor="red" onPress={setbackgroundColor}/>
-        <ColorButton backgroundColor="green" onPress={setbackgroundColor}/>
-        <ColorButton backgroundColor="blue" onPress={setbackgroundColor}/>
-        <ColorButton backgroundColor="yellow" onPress={setbackgroundColor}/>
-        <ColorButton backgroundColor="purple"onPress={setbackgroundColor} />
-      
-    </View>
+    <FlatList style={[styles.container, { backgroundColor }]}
+      data={defaultColors}
+      renderItem={({ item }) => {
+        return (
+          <ColorButton key={item.id} backgroundColor={item.color} onPress={setbackgroundColor}/>
+        )}
+      }
+    />
   )
 }
 
@@ -20,7 +21,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     display: "flex",
-    justifyContent: "center",
-    alignItems: "center"
   }
 })
